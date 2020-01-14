@@ -11,6 +11,8 @@ call plug#begin()
 
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-vdebug/vdebug'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'psf/black'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
@@ -166,6 +168,18 @@ let g:lightline.tabline = {
   \   'left': [ ['tabs'] ],
   \   'right': [ ['close'] ]
   \ }
+
+" Pythonisms
+augroup PYTHON
+    autocmd!
+    autocmd BufWritePost {*.py} execute "Black"
+augroup END
+autocmd FileType python set colorcolumn=88
+let g:pymode_python = 'python3'
+let g:black_linelength = 88
+let g:python_highlight_all = 1
+" Only add this next line if you use pydocstyle for all your projects
+let g:syntastic_python_checkers = ["pydocstyle"]
 
 " fzf - maps fuzzy file search to Ctrl-p
 nnoremap <C-p> :Files<Cr>
