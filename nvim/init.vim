@@ -11,6 +11,8 @@ call plug#begin()
 
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-vdebug/vdebug'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -164,6 +166,9 @@ let g:lightline.tabline = {
   \   'left': [ ['tabs'] ],
   \   'right': [ ['close'] ]
   \ }
+
+" fzf - maps fuzzy file search to Ctrl-p
+nnoremap <C-p> :Files<Cr>
 
 map <Leader>s :wincmd j<CR>
 map <Leader>w :wincmd k<CR>
