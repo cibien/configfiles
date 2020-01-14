@@ -63,6 +63,22 @@ endif
 
 set background=dark
 colorscheme palenight
+set showtabline=2  
+set guioptions-=e 
+set laststatus=2
+set cursorline
+let mapleader = ","
+set timeout timeoutlen=8000
+syntax on
+set number nu
+set visualbell
+set encoding=UTF-8
+set ruler
+set nocompatible
+set mouse=n
+set updatetime=100
+set hlsearch
+set incsearch
 set noshowmode
 set autoindent
 set smartindent
@@ -70,6 +86,10 @@ set expandtab
 set tabstop=2
 set smarttab
 set shiftwidth=2
+set hidden 
+set nobackup 
+set nowritebackup 
+set updatetime=300
 
 " coc.nvim {{ "
 let g:coc_global_extensions = [
@@ -99,12 +119,6 @@ let g:coc_global_extensions = [
       \'coc-omnisharp',
       \]
 
-" from readme
-" if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -150,23 +164,6 @@ let g:lightline.tabline = {
   \   'left': [ ['tabs'] ],
   \   'right': [ ['close'] ]
   \ }
-
-set showtabline=2  
-set guioptions-=e 
-set laststatus=2
-set cursorline
-let mapleader = ","
-set timeout timeoutlen=8000
-syntax on
-set number nu
-set visualbell
-set encoding=UTF-8
-set ruler
-set nocompatible
-set mouse=n
-set updatetime=100
-set hlsearch
-set incsearch
 
 map <Leader>s :wincmd j<CR>
 map <Leader>w :wincmd k<CR>
